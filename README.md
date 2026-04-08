@@ -13,7 +13,7 @@ administrative data, trade data, ML pipeline
 
 This pipeline was built to support analysis of U.S. agricultural trade
 flows over a decade. HS codes are the international standard for
-classifying traded goods — without them, product-level trade analysis
+classifying traded goods: without them, product-level trade analysis
 is impossible. But real customs records frequently have missing, vague,
 or inconsistent codes due to incomplete filing, product description
 variation, and reporting errors.
@@ -78,9 +78,9 @@ automatically assigned.
 
 ## Transferability
 
-The problem structure here — large-scale administrative records with
+The problem structure here, large-scale administrative records with
 missing or miscoded categorical identifiers, where ground truth exists
-but coverage is incomplete — maps directly onto clinical data challenges
+but coverage is incomplete: maps directly onto clinical data challenges
 such as missing ICD codes, NDC code inconsistencies, or lab result
 classification in EHR data.
 
