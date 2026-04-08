@@ -50,3 +50,42 @@ that the dictionary misses.
 ---
 
 ## Recommended hybrid policy
+
+if dictionary match:
+assign HS, log dict_version
+elif ML margin >= threshold:
+assign HS, log model_version + margin
+else:
+flag for manual QA
+
+
+This tiered approach maximizes automation while maintaining auditability —
+the same logic used in clinical coding validation workflows.
+
+---
+
+## Confidence proxy (LinearSVC)
+
+```python
+margins = best_model.decision_function(X_test)
+conf = margins.max(axis=1)  # larger = more confident
+```
+
+Cases with low `conf` are routed to manual review rather than
+automatically assigned.
+
+---
+
+## Transferability
+
+The problem structure here — large-scale administrative records with
+missing or miscoded categorical identifiers, where ground truth exists
+but coverage is incomplete — maps directly onto clinical data challenges
+such as missing ICD codes, NDC code inconsistencies, or lab result
+classification in EHR data.
+
+---
+
+## Author
+
+Mengshan Zhao | mengshan.zhao@wsu.edu | [www.mengshanzhao.com](https://www.mengshanzhao.com)
